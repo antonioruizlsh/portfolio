@@ -19,17 +19,23 @@ const videoFolders = [
   {
     folder: "Asesora de ventas",
     desc: "Short-form content for a sales advisor — videos that present, persuade and generate leads.",
-    videos: ["https://youtube.com/shorts/tw7KvS6IxT8?feature=share", "https://youtube.com/shorts/C806QMInvfc?feature=share", "https://youtube.com/shorts/VeUXP5ckuXE?feature=share"] // Video 1, Video 2, Video 3 — paste the YouTube links here
+    videos: ["https://youtube.com/shorts/tw7KvS6IxT8?feature=share", "https://youtube.com/shorts/C806QMInvfc?feature=share", "https://youtube.com/shorts/VeUXP5ckuXE?feature=share"],
+    covers: ["assets/thumbnails/asesora-de-ventas-video-1.jpg", "assets/thumbnails/asesora-de-ventas-video-2.jpg", "assets/thumbnails/asesora-de-ventas-video-3.jpg"]
+     // Video 1, Video 2, Video 3 — paste the YouTube links here
   },
   {
     folder: "Asesores Legales",
     desc: "Professional video content for legal advisors — clear, trustworthy and client-ready.",
-    videos: ["https://youtube.com/shorts/8qp2ZYH63uw?feature=share", "https://youtube.com/shorts/9oyNLGG_q_w?feature=share"] // Video 1, Video 2, Video 3 — paste the YouTube links here
+    videos: ["https://youtube.com/shorts/8qp2ZYH63uw?feature=share", "https://youtube.com/shorts/9oyNLGG_q_w?feature=share"],
+    covers: ["assets/thumbnails/asesores-legales-video-1.jpg", "assets/thumbnails/asesores-legales-video-2.jpg"]
+     // Video 1, Video 2, Video 3 — paste the YouTube links here
   },
   {
     folder: "Personal",
     desc: "My own projects — storytelling, editing and motion experiments.",
-    videos: ["https://youtube.com/shorts/UrIZnYJ_ges?feature=share", "https://youtube.com/shorts/EZHLak2rVXk?feature=share", "https://youtube.com/shorts/OBqkF15Jo6Q?feature=share"] // Video 1, Video 2, Video 3 — paste the YouTube links here
+    videos: ["https://youtube.com/shorts/UrIZnYJ_ges?feature=share", "https://youtube.com/shorts/EZHLak2rVXk?feature=share", "https://youtube.com/shorts/OBqkF15Jo6Q?feature=share"],
+    covers: ["assets/thumbnails/personal-video-1.jpg", "assets/thumbnails/personal-video-2.jpg", "assets/thumbnails/personal-video-3.jpg"]
+     // Video 1, Video 2, Video 3 — paste the YouTube links here
   },
 ];
 
@@ -60,7 +66,8 @@ videoFolders.forEach(group => {
       url: "",
       videoId: id,
       src: "",
-      thumbnail: ""
+      thumbnail: (group.covers && group.covers[i]) || ""
+
     });
   });
 });
@@ -99,7 +106,7 @@ const grid = document.querySelector("#videosGrid");
 const emptyMsg = document.querySelector("#emptyMsg");
 
 function thumbHTML(v) {
-  if (v.thumbnail) return `<img src="${v.thumbnail}" alt="${v.title}" loading="lazy">`;
+  if (v.thumbnail) return `<img class="cover-img" src="${v.thumbnail}" alt="${v.title}" loading="lazy">`;
   if (v.type === "youtube" && v.videoId) return `<img src="https://img.youtube.com/vi/${v.videoId}/hqdefault.jpg" alt="${v.title}" loading="lazy">`;
   if (v.type === "local" && v.src) return `<video src="${v.src}#t=0.1" preload="metadata" muted playsinline oncontextmenu="return false" aria-hidden="true"></video>`;
   return "";
