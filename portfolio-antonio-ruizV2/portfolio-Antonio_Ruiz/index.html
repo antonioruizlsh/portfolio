@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antonio Ruiz — Content Creator & Marketing | Video Portfolio</title>
+  <meta name="description" content="Antonio Ruiz — Computer Science Engineer & marketer. Video editing, content creation and ads. Open to projects and teams." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2366DDFF'>↑</text></svg>">
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#home" class="logo">ANTONIO RUIZ <span>PORTFOLIO</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#videos" class="nav-link">Videos</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">Contact Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-text reveal">
+          <div class="badges">
+            <span class="badge badge-live">● Open to Work</span>
+            <span class="badge">Open to Projects</span>
+            <span class="badge">Team Player</span>
+          </div>
+          <p class="eyebrow">Hi, I'm Antonio Ruiz</p>
+          <h1>Video & content that makes brands <em>grow.</em></h1>
+          <p class="hero-desc">Computer Science Engineer with a marketing focus. I edit, create and optimize content that gets attention — and results.</p>
+          <div class="hero-actions">
+            <a href="#videos" class="btn btn-primary">▶ Watch My Videos</a>
+            <a href="#contact" class="btn btn-ghost">Let's Work Together</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong><span class="counter" data-target="5">0</span>+</strong><small>years creating content</small></div>
+            <div class="stat"><strong><span class="counter" data-target="3">0</span></strong><small>roles in marketing & tech</small></div>
+            <div class="stat"><strong>B2</strong><small>English · Spanish Native</small></div>
+          </div>
+        </div>
+        <!-- HERO CAROUSEL: slides are built automatically in JS from the same
+             `videos` list used in Video Portfolio. Add a video there and it
+             appears here too. Clicking a slide scrolls to that exact video. -->
+        <div class="hero-carousel reveal" id="heroCarousel" aria-label="Featured videos">
+          <div class="carousel-head">
+            <span class="card-badge" style="margin:0">✦ FEATURED VIDEOS</span>
+            <div class="carousel-arrows">
+              <button type="button" class="car-btn" id="carPrev" aria-label="Previous video">↑</button>
+              <button type="button" class="car-btn" id="carNext" aria-label="Next video">↓</button>
+            </div>
+          </div>
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="carouselTrack"></div>
+          </div>
+          <div class="carousel-dots" id="carouselDots"></div>
+          <p class="carousel-hint">Click a video to see it in my portfolio ↓</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT + PHOTO -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="eyebrow reveal">About Me</p>
+        <h2 class="section-title reveal">Short version: I make content that <em>works.</em></h2>
+        <div class="profile-grid">
+          <figure class="profile-photo reveal">
+            <!-- Tony's photo, extracted from his CV. Replace assets/photo-antonio.jpg to change it -->
+            <img src="assets/photo-antonio.jpg" alt="Antonio Ruiz" loading="lazy">
+            <figcaption>
+              <strong>Raul Antonio Ruiz Gamez</strong>
+              <span>Content Creator & Marketing · Mexicali, B.C., Mexico</span>
+            </figcaption>
+          </figure>
+          <div class="reveal">
+            <p class="about-short">Motivated professional in <strong>marketing and engineering</strong>. Strong communicator and problem-solver.</p>
+            <p class="about-short">My engineering degree gives me an edge: I master editing and creation software — and I understand the tech, data and platforms behind it.</p>
+            <p class="about-short">I'm enthusiastic about working in marketing — on any project, with any team.</p>
+            <div class="why-grid why-grid-1col">
+              <article class="mini-card"><span>🔥</span><div><h3>Passionate about marketing</h3><p>Every project is a chance to create and learn.</p></div></article>
+              <article class="mini-card"><span>🤝</span><div><h3>Team player</h3><p>Clear communication. Open to feedback. Focused on the goal.</p></div></article>
+              <article class="mini-card"><span>🚀</span><div><h3>Adaptable</h3><p>Ads, short-form video, branding — I adjust fast.</p></div></article>
+            </div>
+          </div>
+        </div>
+
+        <!-- WHO I'VE WORKED WITH -->
+        <div class="worked-with reveal">
+          <h3 class="worked-title">Who I've worked with</h3>
+          <div class="worked-grid">
+            <div class="worked-item"><span>💼</span><strong>Sales Professionals</strong><small>Content that sells and generates leads.</small></div>
+            <div class="worked-item"><span>⚖️</span><strong>Lawyers</strong><small>Professional content that builds trust.</small></div>
+            <div class="worked-item"><span>🏢</span><strong>Business Owners & Professionals</strong><small>Strong online presence for their projects.</small></div>
+            <div class="worked-item"><span>🎬</span><strong>Personal Projects</strong><small>My own channels & experiments in storytelling and editing.</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section class="section section-alt" id="videos">
+      <div class="container">
+        <p class="eyebrow reveal">Video Portfolio</p>
+        <h2 class="section-title reveal">Videos I've <em>created</em></h2>
+        <p class="section-desc reveal">Click any video to watch it.</p>
+
+        <div class="filters reveal" role="group" aria-label="Filter videos">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="asesora-de-ventas">Asesora de ventas</button>
+          <button class="filter-btn" data-filter="asesores-legales">Asesores Legales</button>
+          <button class="filter-btn" data-filter="personal">Personal</button>
+        </div>
+
+        <div class="projects" id="videosGrid"></div>
+        <p class="empty-msg" id="emptyMsg" hidden>No videos here yet — add one in js/script.js.</p>
+      </div>
+    </section>
+
+    <!-- WEB DESIGN / DOCUMENTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="eyebrow reveal">Web Design</p>
+        <h2 class="section-title reveal">Websites I've <em>designed</em></h2>
+        <p class="section-desc reveal">Full-page designs for real clients. Click one to see the complete design — no download needed.</p>
+        <div class="projects" id="docsGrid"></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <p class="eyebrow reveal">Career</p>
+        <h2 class="section-title reveal">Experience, <em>in brief</em></h2>
+        <div class="timeline">
+          <article class="job reveal">
+            <div class="job-head"><h3>Advertising Campaigns & Data Analyst</h3><span class="job-date">2025</span></div>
+            <p class="job-company">MC1 — Media Center One</p>
+            <p>Digital ad campaigns, lead generation and data analysis to improve results.</p>
+          </article>
+          <article class="job reveal">
+            <div class="job-head"><h3>Content Creation Service</h3><span class="job-date">2020 — Present</span></div>
+            <p class="job-company">Next Level</p>
+            <p>Content and strategy for business owners and professionals — including sales professionals and lawyers — to grow online.</p>
+          </article>
+          <article class="job reveal">
+            <div class="job-head"><h3>Software Installer</h3><span class="job-date">2023</span></div>
+            <p class="job-company">RYM Computers</p>
+            <p>Computer repair, maintenance and software installation for clients.</p>
+          </article>
+        </div>
+
+        <div class="edu-grid">
+          <div class="card reveal"><span class="card-icon">🎓</span><h3>Education</h3><p><strong>CETYS Universidad</strong><br>Computer Science Engineering · 2020 — 2026</p></div>
+          <div class="card reveal"><span class="card-icon">🏅</span><h3>Certification</h3><p><strong>Facebook & Instagram Ads</strong><br>Juan Lombana / Mercatitlán</p></div>
+          <div class="card reveal"><span class="card-icon">🌎</span><h3>Languages & Interests</h3><p>English B2 · Spanish Native<br>Content Creation · Public Speaking · Reading</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <p class="eyebrow reveal">Skills & Tools</p>
+        <h2 class="section-title reveal">Editing software? <em>I master it.</em></h2>
+        <ul class="skills-list reveal" id="skillsList"></ul>
+        <div class="skills reveal" id="skillsTags"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <p class="eyebrow">Contact</p>
+          <h2 class="section-title">Let's work <em>together</em></h2>
+          <p>Have a project or a role in mind? Message me.</p>
+          <p class="contact-info">
+            📩 <a href="mailto:antonioruizlsh@gmail.com">antonioruizlsh@gmail.com</a><br>
+            📱 686-187-9641<br>
+            💼 <a href="https://www.linkedin.com/in/antonio-ruiz-perfil" target="_blank" rel="noopener">linkedin.com/in/antonio-ruiz-perfil</a><br>
+            📍 Mexicali, B.C., Mexico
+          </p>
+          <p style="margin-top:18px"><a class="btn btn-ghost" href="assets/CV-ANTONIO_RUIZ.pdf" download>⬇ Download My CV (PDF)</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- VIDEO PLAYER -->
+  <div class="modal" id="videoModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box modal-video" role="dialog" aria-modal="true">
+      <button class="modal-close" data-close aria-label="Close">✕</button>
+      <div class="player" id="playerBox"></div>
+      <p class="eyebrow" id="modalCategory" style="margin-top:18px"></p>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+
+  <!-- DOCUMENT VIEWER -->
+  <div class="modal" id="docModal" hidden>
+    <div class="modal-backdrop" data-close-doc></div>
+    <div class="modal-box modal-doc" role="dialog" aria-modal="true">
+      <button class="modal-close" data-close-doc aria-label="Close">✕</button>
+      <p class="eyebrow" id="docClient"></p>
+      <h3 id="docTitle"></h3>
+      <p id="docDesc" style="color:var(--muted)"></p>
+      <div class="doc-viewer" id="docViewer"><img id="docImage" alt=""></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Raul Antonio Ruiz Gamez · Mexicali, B.C., Mexico</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
