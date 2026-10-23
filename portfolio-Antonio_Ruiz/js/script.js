@@ -1,35 +1,35 @@
 // ================= ANTONIO RUIZ — VIDEO PORTFOLIO =================
-// YOUR VIDEOS LIVE IN FOLDERS — edit ONLY the `videoFolders` list below.
+// YOUR VIDEOS LIVE ON YOUTUBE — edit ONLY the `videoFolders` list below.
 //
-// Your files are organized like this (inside the folder assets/videos/):
-//   assets/videos/Asesora de ventas/Video 1.mp4
-//   assets/videos/Asesores Legales/Video 2.mp4
-//   assets/videos/Personal/Video 3.mp4
+// How it works:
+// 1. Upload each video to YouTube (visibility: "Unlisted" is perfect —
+//    only people with the link can find it, and the portfolio still plays it).
+// 2. Copy the video link and paste it in its folder's `videos` list below,
+//    between the quotes. Full links, Shorts links and plain IDs all work.
+// 3. Done — the card appears with the name "Video 1", "Video 2", "Video 3"…
+//    by position in the list. Each folder = one filter in "Video Portfolio".
 //
-// - Each folder = one filter in "Video Portfolio".
-// - Each file name = one video card, shown with that exact name ("Video 1").
-// - The video file itself must be inside assets/videos/<folder name>/
-// - To ADD a video: upload the file to its folder and add ONE line with its
-//   exact file name to that folder's `files` list.
-// - To REMOVE one: delete its line.
-// - Names must match EXACTLY — capitals and spaces included.
+// - An empty slot "" shows nothing — paste the link and the video appears.
+// - To ADD a video: add one more "" to the list and paste its link in it.
+// - To REMOVE one: delete its slot.
+// - No MP4 files are uploaded to GitHub anymore — no size problems.
 // ===================================================================
 
 const videoFolders = [
   {
     folder: "Asesora de ventas",
     desc: "Short-form content for a sales advisor — videos that present, persuade and generate leads.",
-    files: ["Video 1.mp4", "Video 2.mp4", "Video 3.mp4"]
+    videos: ["https://youtube.com/shorts/tw7KvS6IxT8?feature=share", "https://youtube.com/shorts/C806QMInvfc?feature=share", "https://youtube.com/shorts/VeUXP5ckuXE?feature=share"] // Video 1, Video 2, Video 3 — paste the YouTube links here
   },
   {
     folder: "Asesores Legales",
     desc: "Professional video content for legal advisors — clear, trustworthy and client-ready.",
-    files: ["Video 1.mp4", "Video 2.mp4"]
+    videos: ["https://youtube.com/shorts/8qp2ZYH63uw?feature=share", "https://youtube.com/shorts/9oyNLGG_q_w?feature=share"] // Video 1, Video 2, Video 3 — paste the YouTube links here
   },
   {
     folder: "Personal",
     desc: "My own projects — storytelling, editing and motion experiments.",
-    files: ["Video 1.mp4", "Video 2.mp4", "Video 3.mp4"]
+    videos: ["https://youtube.com/shorts/UrIZnYJ_ges?feature=share", "https://youtube.com/shorts/EZHLak2rVXk?feature=share", "https://youtube.com/shorts/OBqkF15Jo6Q?feature=share"] // Video 1, Video 2, Video 3 — paste the YouTube links here
   },
 ];
 
@@ -38,19 +38,28 @@ const videoFolders = [
 function slugify(text) {
   return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
+function youtubeId(input) {
+  const s = String(input || "").trim();
+  if (!s) return "";
+  const m = s.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/|live\/)|youtu\.be\/)([\w-]{6,})/);
+  if (m) return m[1];
+  return /^[\w-]{6,}$/.test(s) ? s : ""; // already a plain ID
+}
 const videos = [];
 videoFolders.forEach(group => {
-  group.files.forEach(file => {
+  group.videos.forEach((link, i) => {
+    const id = youtubeId(link);
+    if (!id) return; // empty slot — hidden until a link is pasted
     videos.push({
-      title: file.replace(/\.[^.]+$/, ""), // "Video 1.mp4" -> "Video 1"
+      title: `Video ${i + 1}`,            // name by position: Video 1, Video 2…
       category: slugify(group.folder),     // filter key, e.g. "asesora-de-ventas"
       label: group.folder,                // shown on the card
       desc: group.desc,
       duration: "",
-      type: "local",
+      type: "youtube",
       url: "",
-      videoId: "",
-      src: encodeURI(`assets/videos/${group.folder}/${file}`),
+      videoId: id,
+      src: "",
       thumbnail: ""
     });
   });
@@ -182,6 +191,7 @@ function showSlide(i) {
   dotsBox.querySelectorAll(".dot").forEach((d, j) => d.classList.toggle("active", j === carIndex));
 }
 function startAutoplay() {
+  if (!videos.length) return; // no YouTube links pasted yet
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   carTimer = setInterval(() => showSlide(carIndex + 1), AUTOPLAY_MS);
 }
@@ -205,7 +215,7 @@ function openPlayer(v) {
   document.querySelector("#modalDesc").textContent = v.desc;
 
   if (v.type === "youtube" && v.videoId) {
-    playerBox.innerHTML = `<iframe src="https://www.youtube.com/embed/${v.videoId}?autoplay=1&rel=0" title="${v.title}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+    playerBox.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${v.videoId}?autoplay=1&rel=0" title="${v.title}" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
   } else if (v.type === "local" && v.src) {
     playerBox.innerHTML = `<video controls controlsList="nodownload" disablepictureinpicture oncontextmenu="return false" autoplay src="${v.src}"></video>`;
   } else {
